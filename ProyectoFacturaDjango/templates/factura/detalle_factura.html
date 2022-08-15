@@ -1,0 +1,38 @@
+{% extends 'factura/base2.html' %}
+
+{%  block titulo %}Factura No. {{ factura.numero_factura }}{% endblock %}
+
+{% block contenido %}
+    <div class="div_paginas">
+        <div style="margin-left: 420px; margin-top: 50px">
+            <p>Factura No. {{ factura.numero_factura }}</p>
+            <p>Fecha de emisión: {{ factura.fecha }}</p>
+            <p>Cliente: {{ factura.cliente }}</p>
+        </div>
+        <table id="tabla">
+            <thead>
+            <tr>
+                <th>Cantidad</th><th>Descripción</th><th>Precio Unitario</th><th>Valor Total</th>
+            </tr>
+            </thead>
+
+            {% for detalle in factura.detalle_list.all %}
+                <tr>
+                <td>{{ detalle.cantidad }}</td><td>{{ detalle.producto.detalle }}</td><td>${{ detalle.producto.precio_unitario }}</td><td>${{ detalle.valor_total }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <table id="tabla_subtotal">
+            <tr>
+                <td>Subtotal</td><td>${{ factura.subtotal }}</td>
+            </tr>
+            <tr>
+                <td>IVA {{ factura.empresa.porcentajeIva }}%</td><td>${{ factura.monto_iva }}</td>
+            </tr>
+            <tr>
+                <td>Total</td><td>{{ factura.total }}</td>
+            </tr>
+        </table>
+    </div>
+{% endblock %}

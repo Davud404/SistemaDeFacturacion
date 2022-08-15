@@ -1,0 +1,36 @@
+{% extends 'factura/base.html' %}
+{% load static %}
+
+{%  block titulo %}Iniciar Sesión{% endblock %}
+
+{% block contenido %}
+    <div align="center" style="margin-top: 20px">
+        <img src="{% static 'imagenes/usuario.png' %}" alt="usuario" style="padding-bottom: 35px; margin-top: 30px" width=20%>
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="form-group" style="width: 25%">
+                <label>Nombre de usuario</label>
+                <input type="text" class="form-control" placeholder="Nombre de usuario" name="username">
+            </div>
+
+            <div class="form-group" style="width: 25%">
+                <label>Contraseña</label>
+                <input type="password" class="form-control" placeholder="Contraseña" name="password">
+            </div><br>
+
+            <button type="submit">Iniciar Sesión</button>
+
+            {% if messages %}
+                <div id="mensaje">
+                    <ul class="messages">
+                        {% for message in messages %}
+                            <p{% if message.tags %} class="{{ message.tags }}"{% endif %} align="center">{{ message }}</p>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+
+        </form>
+    </div>
+{% endblock %}

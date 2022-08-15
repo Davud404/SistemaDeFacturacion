@@ -1,0 +1,48 @@
+{% extends 'factura/base2.html' %}
+
+{%  block titulo %}Sistema de Facturación{% endblock %}
+
+{% block contenido %}
+
+
+    <div style="float: left">
+        <div class="card" id="card_personalizada">
+          <img src="https://glenndoman.ec/wp-content/uploads/2022/03/laura-rivera-ArH3dtoDQc0-unsplash-1110x630.jpg" class="card-img-top" width="20%">
+
+          <div class="card-body">
+            <h5 class="card-title" align="center">Productos</h5>
+            <a href="{% url 'sistemafactura:productos' %}" class="btn btn-primary">Ir a Productos</a>
+          </div>
+        </div>
+
+        <div class="card" id="card_personalizada">
+          <img src="https://blog.comparasoftware.com/wp-content/uploads/2021/02/tipos-de-clientes-de-ecommerce-1.png" class="card-img-top" width="20%">
+
+          <div class="card-body">
+            <h5 class="card-title" align="center">Clientes</h5>
+            <a href="{% url 'sistemafactura:clientes' %}" class="btn btn-primary">Ir a Clientes</a>
+          </div>
+        </div>
+
+        <div class="card" id="card_personalizada">
+          <img src="https://uploads-ssl.webflow.com/60c3cc2547e9a6d51a61b5aa/60dc741bd7dea4931b680dae_facturas-p-1080.png" class="card-img-top" width="20%">
+
+          <div class="card-body">
+            <h5 class="card-title" align="center">Facturas</h5>
+            <a href="{% url 'sistemafactura:facturas' %}" class="btn btn-primary">Ir a Facturas</a>
+          </div>
+        </div>
+
+        <div class="card" id="card_personalizada">
+          <img src="https://uploadgerencie.com/imagenes/inventario-costo.png" class="card-img-top" height=223px>
+
+          <div class="card-body">
+            <h5 class="card-title" align="center">Inventario</h5>
+            <a href="{% url 'sistemafactura:inventario' %}" class="btn btn-primary">Ir a Inventario</a>
+          </div>
+        </div>
+
+    </div>
+
+
+{% endblock %}

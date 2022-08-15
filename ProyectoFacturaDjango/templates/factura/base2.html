@@ -1,0 +1,41 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>
+      {% block titulo %}
+      {% endblock %}
+    </title>
+        <link type="text/css" rel="stylesheet" href="../static/css/style.css" >
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+  </head>
+
+  <body>
+
+    <div class="barraPrincipal" style="height: 60px">
+        <a href="{% url 'sistemafactura:sesion_iniciada' %}"><strong><p id="texto_barra_principal" align="center" >Inicio</p></strong></a>
+        <p id="texto_barra_principal" align="center" >Usuario: {{ user.username }}</p>
+        {% if user.is_superuser != False %}
+            <a href="http://127.0.0.1:8000/admin/"><strong><p id="texto_barra_principal" align="center" >Administración</p></strong></a>
+        {% endif %}
+        <a href="{% url 'sistemafactura:salir' %}"><strong><p id="texto_barra_principal">Cerrar sesión</p></strong></a>
+
+
+
+    </div>
+
+    <div class="imagen_fondo">
+        <div class="div_principal">
+            {% block contenido %}
+            {% endblock %}
+        </div>
+    </div>
+    <div class="barraPrincipal" style="height: 60px; padding: 0" ></div>
+    </div>
+
+  </body>
+</html>
