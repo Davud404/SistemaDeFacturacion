@@ -1,0 +1,23 @@
+{% extends 'factura/base2.html' %}
+
+{%  block titulo %}API Marvel{% endblock %}
+
+{% block contenido %}
+    <div class="div_paginas">
+    <h3 align="center">Personajes de Marvel</h3>
+    <p align="center">(Hacer click a las imágenes para más información del personaje)</p>
+
+    <div style="width: 1500px; margin-left: auto;margin-right: auto; margin-bottom: 50px">
+        {% for personaje in personajes %}
+        <div style="width: 300px; height: 400px;float: left; margin: 30px">
+            <a href="{{ personaje.urls.0.url }}">
+                <img src="{{ personaje.thumbnail.path }}.{{ personaje.thumbnail.extension }}" class="img-thumbnail">
+            </a>
+            <h4>{{ personaje.name }}</h4>
+        </div>
+    {% endfor %}
+    </div>
+
+
+    </div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'factura/base2.html' %}
+
+{%  block titulo %}Factura No. {{ factura.numero_factura }}{% endblock %}
+
+{% block contenido %}
+    <div class="div_paginas">
+        <div style="width: 1000px; margin-left: auto; margin-right: auto">
+            <h2 align="center">{{ empresa.nombre }}</h2>
+            <br>
+            <p style="font-size: 25px"><strong>RUC: </strong>{{ empresa.ruc }}</p>
+            <p style="font-size: 25px"><strong>IVA: </strong>{{ empresa.porcentajeIva }}%</p>
+            <p style="font-size: 25px"><strong>Utilidad: </strong>{{ empresa.utilidad }}%</p>
+            <p style="font-size: 25px"><strong>Teléfono: </strong>{{ empresa.telefono }}</p>
+            <p style="font-size: 25px"><strong>Correo: </strong>{{ empresa.correo }}</p>
+        </div>
+
+    </div>
+{% endblock %}

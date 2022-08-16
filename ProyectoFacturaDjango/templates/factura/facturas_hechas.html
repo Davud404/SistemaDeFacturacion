@@ -1,0 +1,27 @@
+{% extends 'factura/base2.html' %}
+
+{%  block titulo %}Facturas{% endblock %}
+
+{% block contenido %}
+    <div class="div_paginas">
+        <h3 align="center">Facturas generadas</h3>
+        <div style="margin-left: 23%">
+            <a href="{% url 'sistemafactura:crear-factura' %}" class="btn btn-primary" id="boton_personalizado">Agregar Factura</a>
+        </div>
+        <div id="tabla" >
+
+                <table>
+                <thead>
+                    <tr>
+                        <th>Factura No.</th><th>Fecha de emisión</th><th>Cliente</th><th>Total</th>
+                    </tr>
+                </thead>
+                {% for factura in facturas %}
+                    <tr>
+                    <td><a href="{% url 'sistemafactura:factura-id' factura.numero_factura %}">{{ factura.numero_factura }}</a></td><td>{{ factura.fecha }}</td><td>{{ factura.cliente }}</td><td>${{ factura.total }}</td>
+                    </tr>
+                {% endfor %}
+                </table>
+        </div>
+    </div>
+{% endblock %}

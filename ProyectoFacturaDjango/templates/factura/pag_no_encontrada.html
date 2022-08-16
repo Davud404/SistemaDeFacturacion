@@ -1,0 +1,12 @@
+{% extends 'factura/base.html' %}
+{% load static %}
+
+{%  block titulo %}Página no encontrada{% endblock %}
+
+{% block contenido %}
+    <div align="center" style="margin-top: 20px">
+        <h3>UPSSSS</h3>
+        <h3>Página no encontrada</h3>
+        <a href="{% url 'sistemafactura:sesion_iniciada' %}">Volver a Inicio</a>
+    </div>
+{% endblock %}

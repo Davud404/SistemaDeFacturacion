@@ -1,0 +1,37 @@
+{% extends 'factura/base2.html' %}
+
+{%  block titulo %}Editar Empleado{% endblock %}
+
+{% block contenido %}
+    <br>
+    <div class="div_paginas">
+
+        <div class="row">
+            <div class="col-12 col-md-6 offset-md-3">
+                <div class="card">
+
+                    <div class="card-body">
+                        <h3 align="center">Editar Empleado</h3>
+                        <hr>
+
+                        <form action="" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+
+
+                            <div class="d-flex justify-content-end">
+                                <input type="submit" value="Editar" class="btn btn-primary">
+                                &nbsp;
+                                <a href="{% url 'sistemafactura:empleados' %}" class="btn btn-danger">Cancelar</a>
+                            </div>
+                        </form>
+                        {{ mensaje }}
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

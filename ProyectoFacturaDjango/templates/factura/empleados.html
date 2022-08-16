@@ -1,0 +1,24 @@
+{% extends 'factura/base2.html' %}
+
+{%  block titulo %}Empleados{% endblock %}
+
+{% block contenido %}
+    <div class="div_paginas">
+        <h3 align="center">Empleados</h3>
+        <div style="margin-left: 30px">
+           <a href="{% url 'sistemafactura:agregar-empleado' %}" class="btn btn-primary" id="boton_personalizado">Agregar Empleado</a>
+        </div>
+        {% for empleado in empleados %}
+            <div class="card" id="card_personalizada">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ empleado.nombre }} {{ empleado.apellido }}</h5>
+                    <p class="card-text">Empleado ID: {{ empleado.id }}</p>
+                    <p class="card-text">Cedula: {{ empleado.cedula }}</p>
+                    <p class="card-text">Cargo: {{ empleado.cargo }}</p>
+                    <a href="{% url 'sistemafactura:modificar-empleado' empleado.id %}" class="btn btn-primary btn-sm">Modificar</a>
+                    <a href="{% url 'sistemafactura:eliminar-empleado' empleado.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                  </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
